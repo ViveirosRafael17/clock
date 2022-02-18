@@ -1,9 +1,6 @@
 import React from 'react';
 import './App.css';
 
-let hora = document.getElementById('hora');
-let minute = document.getElementById('minute');
-
 const degHora = () => {
   let date = new Date();
   let hour = date.getHours();
@@ -20,11 +17,13 @@ const degMinute = () => {
 }
 
 setInterval(() => {
-  window.location = window.location.href
-}, 3000)
+  degHora()
+}, 1000)
 
-hora.style.transform = `rotate(${degHora()}deg)`
-minute.style.transform = `rotate(${degMinute()}deg)`
+setInterval(() => {
+  degMinute()
+}, 1000)
+
 
 class App extends React.Component {
   constructor(props) {
@@ -32,9 +31,27 @@ class App extends React.Component {
     this.state = { date: new Date ()}
   }
   render() {
+    const myStyleHour = {
+      transform: `rotate(${degHora()}deg)`
+    }
+    const myStyleMinute = {
+      transform: `rotate(${degMinute()}deg)`
+    }
     return (
-      <div>
-        <p id="date" class="date">{this.state.date.toLocaleTimeString()}</p>
+      <div className="clock-box">
+        <div className="clock">
+          <div className='points'>
+            <p className='point-12'>12</p>
+            <p className='point-3'>3</p>
+            <p className='point-6'>6</p>
+            <p className='point-9'>9</p>
+          </div>
+          <div className="hora" id="hora" style={myStyleHour}></div>
+          <div className="minute" id="minute" style={myStyleMinute}></div>
+        </div>
+          <div id="actuall-data">
+          <p id="date" className="date">{this.state.date.toLocaleTimeString()}</p>
+          </div>
       </div>
     )
   }
