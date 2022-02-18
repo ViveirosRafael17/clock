@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+body {
+  background: #000;
+  color: #fff;
+  padding: 25px;
+  font-family: sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.clock-box {
+  width: 100%;
   display: flex;
+  justify-content: center;
+  margin-top: 100px;
   flex-direction: column;
   align-items: center;
+}
+
+.clock {
+  background-color: black;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: solid 5px white;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center
 }
 
-.App-link {
-  color: #61dafb;
+.hora {
+  position: absolute;
+  background-color: white;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hora::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 8px;
+  background-color: whitesmoke;
+  border-radius: 50%;
+}
+
+.minute {
+  background-color: white;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.minute::after {
+  content: '';
+  position: absolute;
+  width: 65px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.date {
+  font-size: 20px;
+  text-align: center;
+  border: 3px white solid;
+  border-radius: 30px;
+  padding: 10px;
 }
